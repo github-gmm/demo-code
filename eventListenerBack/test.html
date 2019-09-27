@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var historyState;
+      pushState = () => {
+        // let divDom = document.createElement('div')
+        // console.log(divDom)
+        // divDom.innerHTML = '动态的创建了一个dom元素'
+        // document.body.appendChild(divDom)
+        console.log('pushState')
+        let state = {'name': '龚媚媚 - pushState'}
+        // pushState会新建一条历史记录
+        window.history.pushState(state, null, '?pushState')
+        console.log(window.history.state)
+      };
+      replaceState = () => {
+        console.log('replaceState')
+        let state = {'name': '龚媚媚 - replaceState'}
+        // replaceState会覆盖当前的历史记录
+        window.history.replaceState(state, null, '?replaceState')
+        console.log(window.history.state)
+      };
+      back = () => {
+        console.log('返回')
+        historyState = window.history.state
+        window.history.back()
+      };
+      forward = () => {
+        console.log('前进')
+        historyState = window.history.state
+        window.history.forward()
+      };
+      // 返回按钮监听
+      window.onpopstate = (e) => {
+        console.log('触发onpopstate方法')
+        console.log(historyState)
+        // 通过判断设置的state数据来确定是否需要跳转
+      };
+    </script>
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      html5监听返回事件 -演示
+    </h1>
+    <div style="width: 50%; height: 100px; line-height: 100px; text-align: center; margin-left: 25%">
+      <button onclick="back()">
+        返回
+      </button>
+      <button onclick="forward()">
+        前进
+      </button>
+    </div>
+    <div style="width: 50%; height: 100px; line-height: 100px; text-align: center; margin-left: 25%">
+      <button onclick="pushState()">
+        pushState按钮
+      </button>
+      <button onclick="replaceState()">
+        replaceState按钮
+      </button>
+    </div>
+  </body>
+</html>
