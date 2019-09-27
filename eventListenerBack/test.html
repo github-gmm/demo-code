@@ -9,14 +9,14 @@
         // divDom.innerHTML = '动态的创建了一个dom元素'
         // document.body.appendChild(divDom)
         console.log('pushState')
-        let state = {'name': '龚媚媚 - pushState'}
+        let state = {'name': '张三 - pushState'}
         // pushState会新建一条历史记录
         window.history.pushState(state, null, '?pushState')
         console.log(window.history.state)
       };
       replaceState = () => {
         console.log('replaceState')
-        let state = {'name': '龚媚媚 - replaceState'}
+        let state = {'name': '张三 - replaceState'}
         // replaceState会覆盖当前的历史记录
         window.history.replaceState(state, null, '?replaceState')
         console.log(window.history.state)
