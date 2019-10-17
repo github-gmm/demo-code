@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Flexible布局
+    </title>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box1-item"></div>
+    </div>
+    <div class="box2">
+      <div class="box2-item"></div>
+      <div class="box2-item"></div>
+    </div>
+    <div class="box3">
+      <div class="box3-item"></div>
+      <div class="box3-item"></div>
+      <div class="box3-item"></div>
+    </div>
+    <div class="box4">
+      <div class="one-box4">
+        <div class="box4-item"></div>
+        <div class="box4-item"></div>
+      </div>
+      <div class="one-box4">
+        <div class="box4-item"></div>
+        <div class="box4-item"></div>
+      </div>
+    </div>
+    <div class="box5">
+      <div class="one-box5">
+        <div class="box5-item"></div>
+        <div class="box5-item"></div>
+      </div>
+      <div class="one-box5">
+        <div class="box5-item"></div>
+      </div>
+      <div class="one-box5">
+        <div class="box5-item"></div>
+        <div class="box5-item"></div>
+      </div>
+    </div>
+    <div class="box6">
+      <div class="one-box6">
+        <div class="box6-item"></div>
+        <div class="box6-item"></div>
+      </div>
+      <div class="one-box6">
+        <div class="box6-item"></div>
+        <div class="box6-item"></div>
+      </div>
+      <div class="one-box6">
+        <div class="box6-item"></div>
+        <div class="box6-item"></div>
+      </div>
+    </div>
+    <div class="box7">
+      <div class="one-box7">
+        <div class="one-box7-item"></div>
+        <div class="one-box7-item"></div>
+        <div class="one-box7-item"></div>
+      </div>
+      <div class="one-box7">
+        <div class="box7-item"></div>
+        <div class="box7-item"></div>
+      </div>
+      <div class="one-box7">
+        <div class="box7-item"></div>
+        <div class="box7-item"></div>
+      </div>
+    </div>
+    <div class="box8">
+      <div class="one-box8">
+        <div class="box8-item"></div>
+        <div class="box8-item"></div>
+      </div>
+      <div class="one-box8">
+        <div class="box8-item"></div>
+        <div class="box8-item"></div>
+      </div>
+      <div class="one-box8">
+        <div class="box8-item"></div>
+        <div class="box8-item"></div>
+      </div>
+      <div class="one-box8">
+        <div class="box8-item"></div>
+        <div class="box8-item"></div>
+      </div>
+    </div>
+    <div class="box9">
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+      <div class="box9-item"></div>
+    </div>
+  </body>
+  <style>
+    body {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+    .box1 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box1-item {
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      border-radius: 60px;
+    }
+
+    .box2 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .box2-item {
+      width: 30px;
+      height: 30px;
+      background-color: black;
+      border-radius: 30px;
+    }
+
+    .box3 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-direction: column;
+    }
+    .box3-item {
+      width: 25px;
+      height: 25px;
+      background-color: black;
+      border-radius: 25px;
+    }
+    .box3-item:nth-child(2) {
+      align-self: center;
+    }
+    .box3-item:nth-child(3) {
+      align-self: flex-end;
+    }
+
+    .box4 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    .one-box4 {
+      width: 60px;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .one-box4:nth-child(2) {
+      align-items: flex-end;
+    }
+    .box4-item {
+      width: 25px;
+      height: 25px;
+      background-color: black;
+      border-radius: 25px;
+    }
+
+    .box5 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    .one-box5 {
+      width: 60px;
+      height: 26px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .one-box5:nth-child(2) {
+      justify-content: center;
+    }
+    .box5-item {
+      width: 25px;
+      height: 25px;
+      background-color: black;
+      border-radius: 25px;
+    }
+
+    .box6 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    .one-box6 {
+      width: 60px;
+      height: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .one-box6:nth-child(1) {
+      height: 30px;
+    }
+    .box6-item {
+      width: 23px;
+      height: 23px;
+      background-color: black;
+      border-radius: 23px;
+    }
+
+    .box7 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    .one-box7 {
+      width: 60px;
+      height: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .one-box7:nth-child(1) {
+      height: 45px;
+      flex-direction: column;
+    }
+    .one-box7-item:nth-child(2) {
+      align-self: center;
+    }
+    .one-box7-item:nth-child(3) {
+      align-self: flex-end;
+    }
+    .one-box7-item {
+      width: 15px;
+      height: 15px;
+      background-color: black;
+      border-radius: 15px;
+    }
+    .box7-item {
+      width: 18px;
+      height: 18px;
+      background-color: black;
+      border-radius: 18px;
+    }
+
+    .box8 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    .one-box8 {
+      width: 60px;
+      height: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .box8-item {
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      border-radius: 20px;
+    }
+
+    .box9 {
+      width: 60px;
+      height: 80px;
+      padding: 5px;
+      border: 1px solid #888888;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px #888888;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:space-between;
+      align-content: space-between;
+    }
+    .box9-item {
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      border-radius: 20px;
+    }
+  </style>
+</html>
