@@ -1,62 +1,147 @@
-常使用的场景：**移动前端**  
-&emsp;&emsp;1、安卓手机物理返回键  
-&emsp;&emsp;2、苹果手机在企业微信打开浏览器的返回按钮
+利用flex布局，写了从一到九的麻将排版格式  
+![麻将图片](https://github.com/github-gmm/demo-code/blob/master/assets/p5.jpg)  
 
-移动前端开发语言是：**vue**  
-&emsp;&emsp;路由跳转：vue-router hash模式  
+父元素（容器）：__flex container__  
 
-先介绍一下html5中history有哪些属性和API，我们用到了其中2个方法（pushState、replaceState），来根据状态存储的数据判断是否触发返回事件    
-&emsp;&emsp;1、window.history.length - 历史记录长度  
-&emsp;&emsp;2、window.history.state - 历史记录状态  
-&emsp;&emsp;3、window.history.go(num) - 回到指定的历史记录（参数num可以是正/负）  
-&emsp;&emsp;4、window.history.back() - 回到上一个历史记录  
-&emsp;&emsp;5、window.history.forward() - 回到下一个历史记录（前提当前历史记录不是最新的）  
-&emsp;&emsp;6、window.history.pushState(state, title, newUrl) - 新增一个历史记录（路径等于当前的url + newUrl ）  
-&emsp;&emsp;7、window.history.replaceState(state, title, newUrl) - 替换当前的历史记录路径（路径等于当前的url + newUrl ）    
+ - **flex-direction：** *子元素（项目）的排列方向，默认 ==row==*
+	 ```js
+	 属性值 + 作用解释
+	 1. row（默认值）：主轴为水平方向，起点在左端
+	 2. row-reverse：主轴为水平方向，起点在右端
+	 3. colunm：主轴为垂直方向，起点在上沿
+	 4. colunm-reverse：主轴为垂直方向，起点在下沿
+	```
+ - **flex-wrap：** *子元素（项目）的总宽度超出时是否换行，默认 ==nowrap==*
+	 ```js
+	属性值 + 作用解释
+	 1. nowrap（默认）：不换行
+	 2. wrap：换行，第一行在上方
+	 3. wrap-reverse：换行，在第一行的下方
+	```
+ - **flex-flow：** *上两种属性的简写，默认 ==row nowrap==*
+ - **justify-content：** *主轴 __main axis__ 的对齐方式，默认 ==flex-start==*
+	 ```js
+	属性值 + 作用解释
+	 1. flex-start（默认值）：左对齐
+	 2. flex-end：右对齐
+	 3. center：右对齐
+	 4. space-between：两端对齐，项目之间的间隔都相等
+	 5. space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+	 6. space-evenly：项目之间的间隔都相等
+	```
+ - **align-content：** *交叉轴 __cross axis__ 的 __多行__ 的对齐方式，默认 ==stretch==*
+	 ```js
+	 属性值 + 作用解释
+	 1. stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+	 2. flex-start：交叉轴的起点对齐
+	 3. flex-end：交叉轴的终点对齐
+	 4. center：交叉轴的中点对齐
+	 5. space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+	 6. space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+	```
+ - **align-items：** *交叉轴 __cross axis__ 的 __单行__ 的对齐方式，默认 ==stretch==*
+	 ```js
+	 属性值 + 作用解释
+	 1. stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+	 2. flex-start：交叉轴的起点对齐
+	 3. flex-end：交叉轴的终点对齐
+	 4. center：交叉轴的中点对齐
+	 5. baseline：项目的第一行文字的基线对齐。
+	```
 
-监听事件：window.onpopstate  
+子元素（项目）：__flex item__  
 
-**pushState和replaceState作用演示：**  
-打开当前页面路径如下(D:/webstorm_workspace/demo-code/eventListenerBack/test.html)，历史记录长度1
-![图片1](https://github.com/github-gmm/demo-code/blob/master/assets/p1.jpg)  
-点击pushState按钮：创建了一条新的历史记录（新建状态）、历史记录长度2  
-![图片2](https://github.com/github-gmm/demo-code/blob/master/assets/p2.jpg)
-pushState按钮的代码如下：
-```js
-// pushState会新建一条历史记录
-pushState = () => {
-  let state = {'name': '张三 - pushState'}
-  window.history.pushState(state, null, '?pushState')
-  console.log('pushState')
-  console.log(window.history.state)
-}
+ - **order：** *子元素（项目）的排列顺序，数值越小排列在前面，默认 ==0==*
+	 ```js
+	 属性值<integer>
+	 0、1、2、3、4...
+	 ```
+	- **flex-grow：** *子元素（项目）的放大比例，默认 ==0==*
+	 ```js
+	 属性值<number>
+	 0、1、2、3、4...
+	 注：0不放大
+	 ```
+- **flex-shrink：** *子元素（项目）的缩小比例，默认 ==1==*
+	 ```js
+	 属性值<number>
+	 0、1、2、3、4...
+	 注：0不缩小
+	 ```
+- **flex-basis：** *子元素（项目）的占用空间，默认 ==auto==*
+	 ```js
+	 属性值<length>
+	 1. 自定义：100px、200px、300px...
+	 2. 默认大小：auto
+	 ```
+- **flex：** *上面三种属性的简写，默认 ==0 1 auto==*
+	 ```js
+	 快捷属性：优先推荐使用这个属性，而不是单独写三个属性
+	 1. auto：（1 1 auto）
+	 2. none：（0 0 auto）
+	 ```
+- **align-self：** *交叉轴 __cross axis__  上单个项目的对齐方式，默认 ==auto==*
+	 ```js
+	 属性值 + 作用解释
+	1. auto（默认值）：和父元素上面的align-items属性保持一致
+	2. flex-start：交叉轴的起点对齐
+	3. flex-end：交叉轴的终点对齐
+	4. center：交叉轴的中点对齐
+	5. baseline：项目的第一行文字的基线对齐。
+	6. stretch：如果项目未设置高度或设为auto，将占满整个容器的高度。
+	 ```
+
+麻将布局分析：  
+&emsp;&emsp;首先我们可以把上面的几种排版格式分出来，可以发现有几种是一样的。  
+1、①筒和⑤筒的中间：子元素在父元素里面居中对齐（水平居中、垂直居中）
+ ```css
+/* 父元素 */
+display: flex;
+justify-content: center;
+align-items: center;
 ```
-点击replaceState按钮：替换当前的历史记录（更新状态），历史记录长度2  
-![图片3](https://github.com/github-gmm/demo-code/blob/master/assets/p3.jpg)
 
-replaceState按钮的代码如下：
-```js
-// replaceState会覆盖当前的历史记录
-replaceState = () => {
-  let state = {'name': '张三 - replaceState'}
-  window.history.replaceState(state, null, '?replaceState')
-  console.log('replaceState')
-  console.log(window.history.state)
-}
-```
-**监听事件演示**  
-点击返回按钮：会触发监听事件window.onpopstate方法；之前的路径是(D:/webstorm_workspace/demo-code/eventListenerBack/test.html?replaceState)，返回到(D:/webstorm_workspace/demo-code/eventListenerBack/test.html)  
-![图片4](https://github.com/github-gmm/demo-code/blob/master/assets/p4.jpg)
+2、②筒、③筒和⑦筒的上部分：父元素排列成一列，子元素不同方式对齐
+ ```css
+/* 父元素 */
+display: flex;
+flex-direction: column;
 
-返回按钮的代码如下：
-```js
-// 返回按钮监听
-window.onpopstate = (e) => {
-  console.log('触发onpopstate方法')
-  console.log(historyState)
-  // 判断前一个历史记录存储的state数据来确定是否需要改变当前的数据
-}
+justify-content: space-between; // 主轴两端对齐 （②筒）
+align-items: center;
+
+/* 子元素 */
+align-self: center; // 交叉轴中点对齐（③筒）
+align-self: flex-end; // 交叉轴终点对齐（③筒）
 ```
-**总结**  
-&emsp;&emsp;1、什么时候会触发这个监听事件？除了back方法，go和forward方法也可以触发  
-&emsp;&emsp;2、前进后退历史记录需要根据条件判断时，需要绑定监听事件
+
+3、④筒、⑤筒、⑥筒和⑧筒：属于父元素包含一行的子元素排成一列、一行的子元素在包含两个项目排成一行，两端对齐；
+ ```css
+/* 父元素 */
+display: flex;
+flex-direction: column;
+
+/* 子元素 */
+display: flex;
+justify-content: space-between;
+```
+
+4、⑨筒：需要用到超出父元素换行属性
+ ```css
+/* 父元素 */
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-content: space-between;
+```
+
+##### 总结  
+1、flex布局与传统布局在对齐方式的写法上前者要简单许多  
+2、flex布局的兼容性没有传统布局的在浏览器好，在旧的浏览器不支持  
+3、flex也称之为弹性布局，可以随着窗口大小自动收缩元素的大小，不用写死  
+4、flex布局在html5的功能效果显著，不过还是会有很多小问题需要自己处理  
+
+推荐学习网址：  
+ 1. [Flex 布局教程：语法篇 - 阮一峰](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)  
+ 2. [Flex 布局教程：实例篇 - 阮一峰](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)  
+ 3. [CSS3 FlexBox 布局完全指南](https://www.html.cn/archives/8629)
