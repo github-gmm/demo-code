@@ -18,9 +18,9 @@
 
 **pushState和replaceState作用演示：**  
 打开当前页面路径如下(D:/webstorm_workspace/demo-code/eventListenerBack/test.html)，历史记录长度1
-![123](https://github.com/github-gmm/demo-code/tree/master/assets/p1.jpg)
+![123](https://github.com/github-gmm/demo-code/blob/master/assets/p1.jpg)  
 点击pushState按钮：创建了一条新的历史记录（新建状态）、历史记录长度2  
-![123](https://github.com/github-gmm/demo-code/tree/master/assets/p2.jpg)
+![123](https://github.com/github-gmm/demo-code/blob/master/assets/p2.jpg)
 pushState按钮的代码如下：
 ```js
 // pushState会新建一条历史记录
@@ -32,7 +32,7 @@ pushState = () => {
 }
 ```
 点击replaceState按钮：替换当前的历史记录（更新状态），历史记录长度2  
-![123](https://github.com/github-gmm/demo-code/tree/master/assets/p3.jpg)
+![123](https://github.com/github-gmm/demo-code/blob/master/assets/p3.jpg)
 
 replaceState按钮的代码如下：
 ```js
@@ -46,7 +46,7 @@ replaceState = () => {
 ```
 **监听事件演示**  
 点击返回按钮：会触发监听事件window.onpopstate方法；之前的路径是(D:/webstorm_workspace/demo-code/eventListenerBack/test.html?replaceState)，返回到(D:/webstorm_workspace/demo-code/eventListenerBack/test.html)  
-![123](https://github.com/github-gmm/demo-code/tree/master/assets/p4.jpg)
+![123](https://github.com/github-gmm/demo-code/blob/master/assets/p4.jpg)
 
 返回按钮的代码如下：
 ```js
