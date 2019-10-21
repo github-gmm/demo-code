@@ -34,7 +34,8 @@
       // 返回按钮监听
       window.onpopstate = (e) => {
         console.log('触发onpopstate方法')
-        console.log(historyState)
+        console.log('当前历史记录的状态：' + e.state)
+        console.log('前一个历史记录的状态' + historyState)
         // 通过判断设置的state数据来确定是否需要跳转
       };
     </script>
